@@ -10,3 +10,9 @@ Project is created with:
 * Vue 3
 * Typescript
 
+## Setup
+To run this project, clone it :
+$ npm install
+$ npm run serve
+
+
