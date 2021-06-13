@@ -12,8 +12,10 @@ Project is created with:
 
 ## Setup
 To run this project, clone it :
-`$ npm install`
-`$ npm run serve`
+```
+$ npm install
+$ npm run serve
 
+```
 
 
