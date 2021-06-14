@@ -66,7 +66,8 @@ export default defineComponent({
     },
     getDate(unprocessedDate: Date) : string {
       let properDate = unprocessedDate.getFullYear()+'-'+(unprocessedDate.getMonth()+1)+'-'+unprocessedDate.getDate();
-      return properDate
+      let properTime = unprocessedDate.getHours() + ":" + unprocessedDate.getMinutes() + ":" + unprocessedDate.getSeconds();
+      return properDate+' '+properTime
     }
 
   },
