@@ -27,7 +27,7 @@
             <a href="#" class="list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{ eachtodo.details  }}</h5>
-                <small>{{ eachtodo.created_at }}</small>
+                <small>{{ getDate(eachtodo.created_at) }}</small>
               </div>
             </a>
           </div>
@@ -63,7 +63,15 @@ export default defineComponent({
         created_at: new Date()
       };
       this.alltodos.push(this.newTodo);
+    },
+    getDate(unprocessedDate: Date) : string {
+      let properDate = unprocessedDate.getFullYear()+'-'+(unprocessedDate.getMonth()+1)+'-'+unprocessedDate.getDate();
+      return properDate
     }
+
+  },
+  computed:{
+    
   }
 });
 </script>
