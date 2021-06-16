@@ -74,6 +74,9 @@ export default defineComponent({
       let filteredArray = [] 
         filteredArray = this.alltodos.filter(singleTodo => singleTodo.details !== eachTodo.details)
         this.alltodos = filteredArray
+    },
+    duplicationCheck(todoDetails:string) {
+      console.log('todoDetails',todoDetails)
     }
 
   },
