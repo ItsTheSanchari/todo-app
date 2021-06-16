@@ -28,6 +28,7 @@
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{ eachtodo.details  }}</h5>
                 <small>{{ getDate(eachtodo.created_at) }}</small>
+                <button type="button" class="btn btn-danger" @click="removeTodo(eachtodo)">Delete</button>
               </div>
             </a>
           </div>
@@ -68,6 +69,11 @@ export default defineComponent({
       let properDate = unprocessedDate.getFullYear()+'-'+(unprocessedDate.getMonth()+1)+'-'+unprocessedDate.getDate();
       let properTime = unprocessedDate.getHours() + ":" + unprocessedDate.getMinutes() + ":" + unprocessedDate.getSeconds();
       return properDate+' '+properTime
+    },
+    removeTodo(eachTodo : todo) : void {
+      let filteredArray = [] 
+        filteredArray = this.alltodos.filter(singleTodo => singleTodo.details !== eachTodo.details)
+        this.alltodos = filteredArray
     }
 
   },
@@ -76,4 +82,6 @@ export default defineComponent({
   }
 });
 </script>
+
+
 
