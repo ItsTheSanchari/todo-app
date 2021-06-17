@@ -77,9 +77,11 @@ export default defineComponent({
     },
     duplicationCheck(todoDetails:string) {
       let found = []
-      console.log(todoDetails)
-      found = this.alltodos.filter(eachTodo => eachTodo.details == todoDetails)
-      console.log('found',found)
+      found = this.alltodos.filter(eachTodo => eachTodo.details == this.tododata.label)
+      if(!found.length) {
+        this.save()
+      }
+      
     }
 
   },
