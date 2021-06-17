@@ -13,7 +13,7 @@
               />
             </div>
             <div class="row col-md-2" style="margin: 18px;">
-              <button @click="save" type="button" class="btn btn-outline-info">
+              <button @click="duplicationCheck(tododata.label)" type="button" class="btn btn-outline-info">
                 Save
               </button>
             </div>
@@ -76,7 +76,10 @@ export default defineComponent({
         this.alltodos = filteredArray
     },
     duplicationCheck(todoDetails:string) {
-      console.log('todoDetails',todoDetails)
+      let found = []
+      console.log(todoDetails)
+      found = this.alltodos.filter(eachTodo => eachTodo.details == todoDetails)
+      console.log('found',found)
     }
 
   },
