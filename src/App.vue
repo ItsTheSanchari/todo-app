@@ -13,7 +13,11 @@
               />
             </div>
             <div class="row col-md-2" style="margin: 18px;">
-              <button @click="duplicationCheck(tododata.label)" type="button" class="btn btn-outline-info">
+              <button
+                @click="duplicationCheck(tododata.label)"
+                type="button"
+                class="btn btn-outline-info"
+              >
                 Save
               </button>
             </div>
@@ -26,9 +30,15 @@
           >
             <a href="#" class="list-group-item list-group-item-action">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ eachtodo.details  }}</h5>
+                <h5 class="mb-1">{{ eachtodo.details }}</h5>
                 <small>{{ getDate(eachtodo.created_at) }}</small>
-                <button type="button" class="btn btn-danger" @click="removeTodo(eachtodo)">Delete</button>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  @click="removeTodo(eachtodo)"
+                >
+                  Delete
+                </button>
               </div>
             </a>
           </div>
@@ -65,29 +75,39 @@ export default defineComponent({
       };
       this.alltodos.push(this.newTodo);
     },
-    getDate(unprocessedDate: Date) : string {
-      let properDate = unprocessedDate.getFullYear()+'-'+(unprocessedDate.getMonth()+1)+'-'+unprocessedDate.getDate();
-      let properTime = unprocessedDate.getHours() + ":" + unprocessedDate.getMinutes() + ":" + unprocessedDate.getSeconds();
-      return properDate+' '+properTime
+    getDate(unprocessedDate: Date): string {
+      let properDate =
+        unprocessedDate.getFullYear() +
+        "-" +
+        (unprocessedDate.getMonth() + 1) +
+        "-" +
+        unprocessedDate.getDate();
+      let properTime =
+        unprocessedDate.getHours() +
+        ":" +
+        unprocessedDate.getMinutes() +
+        ":" +
+        unprocessedDate.getSeconds();
+      return properDate + " " + properTime;
     },
-    removeTodo(eachTodo : todo) : void {
-      let filteredArray = [] 
-        filteredArray = this.alltodos.filter(singleTodo => singleTodo.details !== eachTodo.details)
-        this.alltodos = filteredArray
+    removeTodo(eachTodo: todo): void {
+      let filteredArray = [];
+      filteredArray = this.alltodos.filter(
+        singleTodo => singleTodo.details !== eachTodo.details
+      );
+      this.alltodos = filteredArray;
     },
-    duplicationCheck(todoDetails:string) {
-      let found = []
-      found = this.alltodos.filter(eachTodo => eachTodo.details == this.tododata.label)
-      if(!found.length) {
-        this.save()
+    duplicationCheck(todoDetails: string) {
+      let found = [];
+      found = this.alltodos.filter(
+        eachTodo => eachTodo.details == this.tododata.label
+      );
+      if (!found.length) {
+        this.save();
       }
-      
     }
-
   },
-  computed:{
-    
-  }
+  computed: {}
 });
 </script>
 
